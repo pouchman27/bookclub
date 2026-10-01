@@ -3,7 +3,8 @@
 <style>
 :root{--paper:#faf6ee;--ink:#2f2824;--mut:#8a7c70;--accent:#7b4f3f;--line:#e4d9c6;--serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;color:var(--ink);font-family:var(--serif);background:var(--paper);-webkit-font-smoothing:antialiased}
+body{margin:0;color:var(--ink);font-family:var(--serif);background-color:var(--paper);background-image:repeating-linear-gradient(90deg,rgba(123,79,63,.075) 0,rgba(123,79,63,.075) 1px,transparent 1px,transparent 22px),linear-gradient(180deg,#f3eadb 0,rgba(250,246,238,0) 380px);-webkit-font-smoothing:antialiased}
+header:after{content:'';display:block;width:min(980px,92%);height:4px;margin:0 auto;border-top:1px solid var(--line)}
 header{text-align:center;padding:64px 16px 0}
 .eyebrow{font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--mut);margin:0}
 h1{margin:10px 0 0;font:400 3.6rem/1 var(--serif);letter-spacing:.28em;padding-left:.28em;color:var(--accent)}
@@ -26,7 +27,7 @@ h2{display:flex;align-items:baseline;gap:14px;margin:0 0 18px;font:400 1.9rem va
 h2:after{content:"";flex:1;border-top:1px solid var(--line);order:2}
 h2 small{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);order:3}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
-a.card{display:block;text-decoration:none;color:inherit;background:#fffdf9;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:2px;padding:15px 18px 14px;transition:.18s}
+a.card{display:block;text-decoration:none;color:inherit;background:#fffdf9;box-shadow:0 1px 2px #5a3d2e0d;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:2px;padding:15px 18px 14px;transition:.18s}
 a.card:hover{background:#fff;box-shadow:0 6px 18px #5a3d2e1a;transform:translateY(-2px);border-color:#d3c3a8;border-left-color:var(--accent)}
 .card .d{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
 .card .t{font:600 1.1rem/1.3 var(--serif);margin:6px 0 3px}

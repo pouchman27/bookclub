@@ -1,61 +1,83 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex"><title>BBC | Briana's Book Club</title>
 <style>
-:root{--bg:#fff7f2;--ink:#3d2c3a;--mut:#9a8494;--pink:#f4a6b7;--rose:#d9627f;--peach:#ffd6b8;--mint:#bfe5d3;--sky:#bcd9f2;--lav:#d9c9f0;--butter:#fff0b3;--line:#f3dfd8}
+:root{--paper:#fbf3e4;--ink:#4a3a33;--mut:#9b8577;--cocoa:#7a5545;--rose:#d98a8a;--sage:#9cb59a;--mustard:#e3b85c;--sky:#9fc3d6;--plum:#a98ab0;--line:#e8d9bf;
+--hand:"Bradley Hand","Segoe Print","Chalkboard SE","Comic Sans MS",cursive;--serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg) radial-gradient(circle at 12% 8%,#ffe4ec 0,transparent 30%),radial-gradient(circle at 90% 18%,#e6f1ff 0,transparent 28%);color:var(--ink);font-family:"Avenir Next","Trebuchet MS",system-ui,sans-serif}
-header{text-align:center;padding:48px 18px 10px;position:relative}
-.stack{font-size:3rem;animation:bob 3s ease-in-out infinite;display:inline-block}
-@keyframes bob{50%{transform:translateY(-6px) rotate(-3deg)}}
-h1{margin:6px 0 0;font:700 2.6rem Georgia,serif;color:var(--rose);letter-spacing:.3px}
-header p{margin:.5rem 0 0;color:var(--mut);font-style:italic;font-family:Georgia,serif}
-.stats{display:flex;gap:14px;justify-content:center;margin:22px 0 6px;flex-wrap:wrap}
-.pill{background:#fff;border:2px dashed var(--pink);border-radius:999px;padding:8px 20px;font-weight:700;color:var(--rose)}
-.pill small{font-weight:600;color:var(--mut);margin-left:6px;text-transform:uppercase;font-size:.68rem;letter-spacing:1px}
-.tabs{display:flex;justify-content:center;gap:10px;margin:20px 0 6px}
-.tab{border:0;cursor:pointer;font:700 1rem inherit;font-family:inherit;padding:11px 26px;border-radius:999px;background:#fff;color:var(--ink);box-shadow:0 3px 0 var(--line);transition:.15s}
-.tab:hover{transform:translateY(-2px)}.tab.on{background:var(--rose);color:#fff;box-shadow:0 3px 0 #b84a66}
-.bar{position:sticky;top:0;z-index:5;padding:12px 14px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;background:linear-gradient(var(--bg) 80%,transparent)}
-.bar input{flex:1 1 220px;max-width:330px;padding:10px 18px;border:2px solid var(--line);border-radius:999px;font:inherit;background:#fff;outline:none}
-.bar input:focus{border-color:var(--pink)}
+body{margin:0;color:var(--ink);font-family:var(--serif);background-color:var(--paper);
+background-image:radial-gradient(#e9d9bd 1.2px,transparent 1.3px);background-size:22px 22px}
+header{text-align:center;padding:42px 16px 8px;position:relative;overflow:hidden}
+.doodles{position:absolute;inset:0;pointer-events:none;font-size:1.6rem;opacity:.8}
+.doodles span{position:absolute;animation:tw 4s ease-in-out infinite}
+@keyframes tw{50%{transform:translateY(-5px) rotate(8deg)}}
+.badge{display:inline-block;position:relative;background:#fff;border:3px solid var(--cocoa);border-radius:50%;width:112px;height:112px;line-height:104px;font-size:3rem;box-shadow:4px 5px 0 var(--line)}
+h1{margin:14px 0 0;font:700 3.4rem var(--hand);color:var(--cocoa);letter-spacing:4px}
+.sub{font:1.5rem var(--hand);color:var(--rose);margin:0}
+.tag2{color:var(--mut);font-style:italic;margin:6px 0 0}
+.wavy{display:block;margin:12px auto 0;width:180px;height:10px;background:radial-gradient(circle at 6px 0,transparent 5px,var(--rose) 5.5px,var(--rose) 7px,transparent 7.5px) 0 0/12px 10px repeat-x}
+.stats{display:flex;gap:12px;justify-content:center;margin:20px 0 6px;flex-wrap:wrap}
+.pill{position:relative;background:#fffdf7;border:2px dashed var(--mustard);border-radius:10px;padding:6px 18px;font:1.2rem var(--hand);color:var(--cocoa);transform:rotate(-1.5deg)}
+.pill:nth-child(2){transform:rotate(1.5deg)}.pill small{margin-left:6px;color:var(--mut);font-size:.9rem}
+.tabs{display:flex;justify-content:center;gap:6px;margin:22px 0 0}
+.tab{border:2px solid var(--cocoa);border-bottom:0;cursor:pointer;font:1.15rem var(--hand);padding:9px 26px;border-radius:14px 14px 0 0;background:#f1e3c8;color:var(--cocoa)}
+.tab.on{background:#fffdf7;font-weight:700}
+.sheet{background:#fffdf7;border-top:2px solid var(--cocoa);min-height:60vh;box-shadow:0 -1px 0 #fff}
+.bar{padding:16px 14px 4px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.bar input{flex:1 1 220px;max-width:320px;padding:9px 16px;border:2px solid var(--line);border-radius:12px;font:1rem var(--serif);background:#fff;outline:none}
+.bar input:focus{border-color:var(--rose)}
 .chips{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
-.chip{border:2px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font:600 .82rem inherit;font-family:inherit;cursor:pointer;color:var(--ink)}
-.chip.on{background:var(--peach);border-color:var(--peach)}
-main{max-width:960px;margin:0 auto;padding:6px 16px 70px}
+.chip{border:2px solid var(--line);background:#fff;border-radius:999px;padding:4px 13px;font:1.05rem var(--hand);cursor:pointer;color:var(--cocoa)}
+.chip.on{background:var(--mustard);border-color:var(--mustard);color:#fff}
+main{max-width:980px;margin:0 auto;padding:10px 18px 70px}
 section{margin-top:30px}
-h2{display:inline-block;margin:0 0 14px;font:700 1.6rem Georgia,serif;color:#fff;background:var(--c,var(--rose));padding:5px 22px 6px;border-radius:0 999px 999px 0;margin-left:-16px;padding-left:30px;box-shadow:0 3px 0 #0001}
-h2 small{font:600 .72rem "Trebuchet MS",sans-serif;opacity:.9;margin-left:10px;text-transform:uppercase;letter-spacing:1px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
-.card{position:relative;background:#fff;border-radius:16px;padding:16px 16px 16px 22px;box-shadow:0 4px 0 var(--line);overflow:hidden;transition:.18s}
-.card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:9px;background:var(--c)}
-.card:hover{transform:translateY(-3px) rotate(-.6deg);box-shadow:0 8px 0 var(--line)}
-.card .d{display:inline-block;background:var(--c2);border-radius:999px;padding:2px 10px;font:700 .68rem inherit;font-family:inherit;text-transform:uppercase;letter-spacing:.8px}
-.card .t{font:700 1.08rem/1.25 Georgia,serif;margin:9px 0 3px}.card .a{color:var(--mut);font-size:.88rem}
-.card.up{background:#fffbe6;border:2px dashed #f0cf5a}.tag{display:inline-block;margin-top:8px;font:700 .68rem inherit;font-family:inherit;background:var(--butter);color:#a47a00;padding:2px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:1px}
-.rg{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:20px}
-.rc{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 5px 0 var(--line)}
-.rc .top{padding:26px 22px;text-align:center;background:var(--g)}.rc .top .e{font-size:3rem}
-.rc .top h3{margin:6px 0 0;font:700 1.5rem Georgia,serif;color:var(--ink)}.rc .top .when{font-weight:700;color:var(--ink);opacity:.7;margin-top:2px}
-.rc .body{padding:18px 22px 22px}.row{display:flex;gap:10px;margin:8px 0;align-items:flex-start}.row .i{font-size:1.2rem}.row b{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:var(--mut)}
-.row span{font-family:Georgia,serif;font-size:1.02rem}
-.hint{text-align:center;color:var(--mut);margin:26px auto 0;max-width:560px;font-size:.9rem;line-height:1.5}
-.note{max-width:920px;margin:0 auto;padding:0 18px 50px;color:var(--mut);font-size:.84rem;line-height:1.55;text-align:center}
-.empty{text-align:center;color:var(--mut);padding:40px}
+h2{display:flex;align-items:center;gap:12px;margin:0 0 16px;font:700 2.1rem var(--hand);color:var(--cocoa)}
+h2:after{content:"";flex:1;height:0;border-top:3px dotted var(--line)}
+h2 small{font:1rem var(--hand);color:var(--mut);order:3}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:20px 16px}
+.card{position:relative;background:#fff;border:2px solid var(--line);border-radius:6px 14px 8px 12px;padding:24px 16px 14px;box-shadow:3px 4px 0 var(--line);transition:.2s}
+.card:nth-child(odd){transform:rotate(-.8deg)}.card:nth-child(even){transform:rotate(.7deg)}
+.card:hover{transform:rotate(0) translateY(-3px);box-shadow:4px 8px 0 var(--line)}
+.card:before{content:"";position:absolute;top:-10px;left:50%;width:76px;height:20px;margin-left:-38px;transform:rotate(-2deg);background:repeating-linear-gradient(45deg,var(--c) 0 8px,#ffffffaa 8px 12px);opacity:.85;border-radius:2px}
+.card .d{font:1.1rem var(--hand);color:var(--mut)}
+.card .t{font:700 1.15rem/1.25 var(--serif);margin:3px 0 2px;color:var(--ink)}
+.card .a{color:var(--mut);font-style:italic;font-size:.92rem}
+.card .mk{position:absolute;right:12px;top:-4px;width:16px;height:34px;background:var(--c);clip-path:polygon(0 0,100% 0,100% 100%,50% 78%,0 100%);opacity:.9}
+.card.up{background:#fff9e0;border-style:dashed;border-color:var(--mustard)}
+.tag{display:inline-block;margin-top:6px;font:1.05rem var(--hand);color:#b98a1c}
+.rg{display:flex;flex-wrap:wrap;gap:46px;justify-content:center;padding:36px 8px 10px}
+.pol{position:relative;width:310px;background:#fff;padding:14px 14px 20px;box-shadow:0 6px 16px #6b4a3a33,0 1px 0 #0001;transition:.25s}
+.pol:nth-child(1){transform:rotate(-3deg)}.pol:nth-child(2){transform:rotate(2.5deg)}
+.pol:hover{transform:rotate(0) scale(1.02)}
+.pol .tape{position:absolute;width:86px;height:26px;background:repeating-linear-gradient(45deg,var(--tc) 0 9px,#ffffffb0 9px 13px);opacity:.85}
+.pol .t1{top:-12px;left:-24px;transform:rotate(-38deg)}.pol .t2{top:-12px;right:-24px;transform:rotate(38deg)}
+.pol .ph{height:210px;display:flex;align-items:center;justify-content:center;font-size:5rem;background:var(--g);position:relative;overflow:hidden}
+.pol .ph i{position:absolute;font-style:normal;font-size:1.3rem;opacity:.7}
+.pol .cap{text-align:center;margin-top:14px}
+.pol h3{margin:0;font:700 1.8rem var(--hand);color:var(--cocoa)}
+.pol .when{font:1.2rem var(--hand);color:var(--rose);margin-top:2px}
+.pol ul{list-style:none;margin:12px 0 0;padding:0;text-align:left;font-size:.98rem;line-height:1.45}
+.pol li{padding:5px 0;border-top:1px dotted var(--line)}.pol li b{font:1.05rem var(--hand);color:var(--mut);margin-right:6px}
+.hint{text-align:center;color:var(--mut);margin:36px auto 0;max-width:560px;font-size:.92rem;line-height:1.55}
+.note{max-width:900px;margin:0 auto;padding:0 18px 50px;color:var(--mut);font-size:.85rem;line-height:1.55;text-align:center}
+.empty{text-align:center;color:var(--mut);padding:40px;font:1.3rem var(--hand)}
 .hide{display:none}
 </style></head><body>
-<header><div class="stack">📚</div><h1>BBC</h1><p>Briana's Book Club<br>Every book we've read together, month by month</p>
+<header><div class="doodles"><span style="left:8%;top:30px">⭐</span><span style="left:18%;top:120px;animation-delay:1s">☕</span><span style="right:9%;top:36px;animation-delay:.5s">🔖</span><span style="right:19%;top:130px;animation-delay:1.5s">✨</span><span style="left:30%;top:20px;animation-delay:2s;font-size:1.1rem">🌼</span><span style="right:31%;top:14px;animation-delay:2.5s;font-size:1.1rem">⭐</span></div>
+<div class="badge">📚</div><h1>BBC</h1><p class="sub">Briana's Book Club</p><p class="tag2">Every book we've read together, month by month</p><span class="wavy"></span>
 <div class="stats"><span class="pill"><span id="n"></span><small>books</small></span><span class="pill"><span id="yrs"></span><small>years</small></span><span class="pill">2<small>retreats</small></span></div>
 <div class="tabs"><button class="tab on" data-t="books">📖 Books</button><button class="tab" data-t="ret">🏡 Retreats</button></div></header>
-<div id="books"><div class="bar"><input id="q" type="search" placeholder="🔍  Search titles or authors"><div class="chips" id="chips"></div></div><main id="m"></main>
+<div class="sheet">
+<div id="books"><div class="bar"><input id="q" type="search" placeholder="Search titles or authors"><div class="chips" id="chips"></div></div><main id="m"></main>
 <div class="note">Source: the club's yearly reading schedules. 2019 is incomplete: only the November and December books could be confirmed. Months without a book (summer breaks, planning meetings, Christmas parties) are left out. October and November 2026 are upcoming. Authors are listed only where known.</div></div>
-<div id="ret" class="hide"><main><div class="rg" id="rg"></div><div class="hint">Overnight getaways with the BBC: a cabin, a pile of books, good food and lots of talking. 💛<br>Dates and places come from the booking confirmations and calendar. Earlier retreats, if there were any, aren't in the record.</div></main></div>
+<div id="ret" class="hide"><main><div class="rg" id="rg"></div><div class="hint">Overnight getaways with the BBC: a cabin, a pile of books, good food and lots of talking.<br>Dates and places come from the booking confirmations and calendar. Earlier retreats, if there were any, aren't in the record.</div></main></div>
+</div>
 <script>
 const B=[{"y": 2017, "d": "Jan 11", "t": "Battle Hymn of the Tiger Mother", "a": "Amy Chua"}, {"y": 2017, "d": "Feb 8", "t": "Salt to the Sea", "a": "Ruta Sepetys"}, {"y": 2017, "d": "Mar 8", "t": "Big Little Lies", "a": "Liane Moriarty"}, {"y": 2017, "d": "Apr 12", "t": "A Thousand Splendid Suns", "a": "Khaled Hosseini"}, {"y": 2017, "d": "May 10", "t": "Blacksouls", "a": ""}, {"y": 2017, "d": "Jun 14", "t": "The Last Lecture", "a": "Randy Pausch"}, {"y": 2017, "d": "Aug 9", "t": "The Count of Monte Cristo", "a": "Alexandre Dumas"}, {"y": 2017, "d": "Sep 18", "t": "Half Broke Horses", "a": "Jeannette Walls"}, {"y": 2017, "d": "Oct 16", "t": "The Underground Railroad", "a": "Colson Whitehead"}, {"y": 2017, "d": "Nov 6", "t": "The Rosie Project", "a": "Graeme Simsion"}, {"y": 2018, "d": "Jan 8", "t": "Present Over Perfect", "a": "Shauna Niequist"}, {"y": 2018, "d": "Feb 12", "t": "Beneath a Marble Sky", "a": "John Shors"}, {"y": 2018, "d": "Mar 12", "t": "Crossing to Safety", "a": "Wallace Stegner"}, {"y": 2018, "d": "Apr 16", "t": "The Nightingale", "a": "Kristin Hannah"}, {"y": 2018, "d": "May 14", "t": "Born a Crime", "a": "Trevor Noah"}, {"y": 2018, "d": "Jun 11", "t": "When Breath Becomes Air", "a": "Paul Kalanithi"}, {"y": 2018, "d": "Aug 13", "t": "Personal History", "a": "Katharine Graham"}, {"y": 2018, "d": "Sep 10", "t": "The Boys in the Boat", "a": "Daniel James Brown"}, {"y": 2018, "d": "Oct 8", "t": "A Man Called Ove", "a": "Fredrik Backman"}, {"y": 2018, "d": "Nov 12", "t": "The Orphan Keeper", "a": "Camron Wright"}, {"y": 2019, "d": "Nov 4", "t": "The Storyteller", "a": ""}, {"y": 2019, "d": "Dec 2", "t": "My Dear Hamilton", "a": ""}, {"y": 2020, "d": "Feb 3", "t": "A Place for Us", "a": "Fatima Farheen Mirza"}, {"y": 2020, "d": "Mar 2", "t": "Extremely Loud & Incredibly Close", "a": "Jonathan Safran Foer"}, {"y": 2020, "d": "Mar 30", "t": "The Feather Thief", "a": "Kirk Wallace Johnson"}, {"y": 2020, "d": "May 4", "t": "A Gentleman in Moscow", "a": "Amor Towles"}, {"y": 2020, "d": "Aug 3", "t": "Beneath a Scarlet Sky", "a": "Mark Sullivan"}, {"y": 2020, "d": "Aug 30", "t": "Behind Closed Doors", "a": "B. A. Paris"}, {"y": 2020, "d": "Oct 5", "t": "Pope Joan", "a": "Donna Woolfolk Cross"}, {"y": 2020, "d": "Nov 2", "t": "A Discovery of Witches", "a": "Deborah Harkness"}, {"y": 2020, "d": "Nov 30", "t": "Snow Flower and the Secret Fan", "a": "Lisa See"}, {"y": 2021, "d": "Jan 11", "t": "Snow Flower and the Secret Fan", "a": ""}, {"y": 2021, "d": "Feb 1", "t": "The Moment of Lift", "a": ""}, {"y": 2021, "d": "Mar 1", "t": "The Dutch House", "a": ""}, {"y": 2021, "d": "Apr 5", "t": "The Book of Longings", "a": ""}, {"y": 2021, "d": "May 3", "t": "Little Fires Everywhere", "a": ""}, {"y": 2021, "d": "Jun 7", "t": "The Wednesday Wars", "a": ""}, {"y": 2021, "d": "Aug 9", "t": "Where the Crawdads Sing", "a": ""}, {"y": 2021, "d": "Aug 30", "t": "The Nickel Boys", "a": ""}, {"y": 2021, "d": "Oct 4", "t": "Confessions of an Ugly Stepsister", "a": ""}, {"y": 2021, "d": "Nov 1", "t": "The Night Circus", "a": ""}, {"y": 2022, "d": "Jan", "t": "The Midnight Library", "a": ""}, {"y": 2022, "d": "Feb 7", "t": "The Four Winds", "a": ""}, {"y": 2022, "d": "Mar 7", "t": "Maid", "a": ""}, {"y": 2022, "d": "Apr 11", "t": "The Downstairs Girl", "a": ""}, {"y": 2022, "d": "May 9", "t": "American Dirt", "a": ""}, {"y": 2022, "d": "Aug 8", "t": "Small Great Things", "a": ""}, {"y": 2022, "d": "Sep 12", "t": "Maybe You Should Talk to Someone", "a": ""}, {"y": 2022, "d": "Oct 3", "t": "The Anthropocene Reviewed", "a": ""}, {"y": 2022, "d": "Nov 7", "t": "The Rent Collector", "a": ""}, {"y": 2023, "d": "Jan 10", "t": "Anxious People", "a": "Fredrik Backman"}, {"y": 2023, "d": "Feb 6", "t": "Where the Wind Leads", "a": "Vinh Chung"}, {"y": 2023, "d": "Mar 6", "t": "The Woman Who Smashed Codes", "a": "Jason Fagone"}, {"y": 2023, "d": "Apr 10", "t": "The Book of Lost Friends", "a": "Lisa Wingate"}, {"y": 2023, "d": "May 1", "t": "Greenlights", "a": "Matthew McConaughey"}, {"y": 2023, "d": "Jun 12", "t": "The Kitchen Front", "a": "Jennifer Ryan"}, {"y": 2023, "d": "Aug 7", "t": "Radium Girls", "a": "Kate Moore"}, {"y": 2023, "d": "Sep 11", "t": "Just Mercy", "a": "Bryan Stevenson"}, {"y": 2023, "d": "Oct 2", "t": "The Art of Gathering", "a": "Priya Parker"}, {"y": 2023, "d": "Nov 6", "t": "Orphan Monster Spy", "a": "Matt Killeen"}, {"y": 2024, "d": "Jan 8", "t": "Wintering", "a": "Katherine May"}, {"y": 2024, "d": "Feb 5", "t": "Homegoing", "a": "Yaa Gyasi"}, {"y": 2024, "d": "Mar 4", "t": "Lessons in Chemistry", "a": "Bonnie Garmus"}, {"y": 2024, "d": "Apr 10", "t": "Quiet", "a": "Susan Cain"}, {"y": 2024, "d": "May 6", "t": "The Many Lives and Secret Sorrows of Josephine B.", "a": "Sandra Gulland"}, {"y": 2024, "d": "Jun 3", "t": "Homecoming", "a": "Kate Morton"}, {"y": 2024, "d": "Aug 5", "t": "The Book of Lost Names", "a": "Kristin Harmel"}, {"y": 2024, "d": "Sep 9", "t": "More Than a Body", "a": "Lindsay & Lexie Kite"}, {"y": 2024, "d": "Oct 7", "t": "Lady Tan's Circle of Women", "a": "Lisa See"}, {"y": 2024, "d": "Nov 4", "t": "Bomb Shelter", "a": "Mary Laura Philpott"}, {"y": 2025, "d": "Jan 13", "t": "The Parted Earth", "a": "Anjali Enjeti"}, {"y": 2025, "d": "Feb 3", "t": "Life and Death in Shanghai", "a": "Nien Cheng"}, {"y": 2025, "d": "Mar 7-8", "t": "By Any Other Name", "a": "Jodi Picoult"}, {"y": 2025, "d": "Apr 14", "t": "Killers of the Flower Moon", "a": "David Grann"}, {"y": 2025, "d": "May 5", "t": "Crying in H Mart", "a": "Michelle Zauner"}, {"y": 2025, "d": "Jun 9", "t": "Tom Lake", "a": "Ann Patchett"}, {"y": 2025, "d": "Aug 11", "t": "The Small and the Mighty", "a": "Sharon McMahon"}, {"y": 2025, "d": "Sep 8", "t": "The Women", "a": "Kristin Hannah"}, {"y": 2025, "d": "Oct 6", "t": "Turtles All the Way Down", "a": "John Green"}, {"y": 2025, "d": "Nov 3", "t": "The Devil in the White City", "a": "Erik Larson"}, {"y": 2026, "d": "Jan 12", "t": "The Correspondent", "a": ""}, {"y": 2026, "d": "Retreat", "t": "Wuthering Heights", "a": ""}, {"y": 2026, "d": "Mar 2", "t": "Project Hail Mary", "a": ""}, {"y": 2026, "d": "Apr 13", "t": "The Briar Club", "a": ""}, {"y": 2026, "d": "May 4", "t": "The Revenge of the Tipping Point", "a": ""}, {"y": 2026, "d": "Jul 6", "t": "The Wright Brothers", "a": ""}, {"y": 2026, "d": "Aug 10", "t": "The Lion Women of Tehran", "a": ""}, {"y": 2026, "d": "Sep 14", "t": "The Sisterhood", "a": ""}, {"y": 2026, "d": "Oct 5", "t": "Surrender", "a": ""}, {"y": 2026, "d": "Nov 2", "t": "James", "a": ""}];const today=new Date("2026-10-01");
-const R=[{e:"🌲",t:"Blue Ridge, Georgia",w:"March 7-9, 2025",g:"linear-gradient(135deg,#d7efe2,#cfe6f7)",rows:[["🏡","Where","Airbnb mountain cabin in Blue Ridge, GA"],["📖","Book","By Any Other Name"]]},
-{e:"🔥",t:"Ellijay, Georgia",w:"February 6-9, 2026",g:"linear-gradient(135deg,#ffe0d0,#f7d3e4)",rows:[["🏡","Where","Creekside cabin in Ellijay, GA with a firepit and hot tub"],["📖","Book","Wuthering Heights"]]}];
-document.getElementById("rg").innerHTML=R.map(r=>`<div class="rc"><div class="top" style="--g:${r.g}"><div class="e">${r.e}</div><h3>${r.t}</h3><div class="when">${r.w}</div></div><div class="body">${r.rows.map(x=>`<div class="row"><span class="i">${x[0]}</span><div><b>${x[1]}</b><span>${x[2]}</span></div></div>`).join("")}</div></div>`).join("");
-document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("on",x===t));document.getElementById("books").classList.toggle("hide",t.dataset.t!=="books");document.getElementById("ret").classList.toggle("hide",t.dataset.t!=="ret");window.scrollTo({top:0})});
-const cols=[["#d9627f","#fde1e8"],["#f09a6b","#ffe6d6"],["#6fb89a","#dbf1e6"],["#5b9bd5","#dcebf9"],["#a07fd0","#eadffa"],["#e5b93c","#fff2c4"]];
+const R=[{e:"🌲",t:"Blue Ridge, Georgia",w:"March 7-9, 2025",g:"linear-gradient(160deg,#d6e8d2,#bcd6e3)",tc:"#e3b85c",deco:["⭐","🍂","✨"],rows:[["where","Airbnb mountain cabin in Blue Ridge, GA"],["book","By Any Other Name"]]},
+{e:"🔥",t:"Ellijay, Georgia",w:"February 6-9, 2026",g:"linear-gradient(160deg,#f6d9c9,#ecd0df)",tc:"#d98a8a",deco:["☕","⭐","✨"],rows:[["where","Creekside cabin in Ellijay, GA with a firepit and hot tub"],["book","Wuthering Heights"]]}];
+document.getElementById("rg").innerHTML=R.map(r=>`<div class="pol" style="--tc:${r.tc}"><span class="tape t1"></span><span class="tape t2"></span><div class="ph" style="--g:${r.g}">${r.e}<i style="left:14px;top:12px">${r.deco[0]}</i><i style="right:16px;top:20px">${r.deco[1]}</i><i style="right:24px;bottom:12px">${r.deco[2]}</i></div><div class="cap"><h3>${r.t}</h3><div class="when">${r.w}</div></div><ul>${r.rows.map(x=>`<li><b>${x[0]}:</b>${x[1]}</li>`).join("")}</ul></div>`).join("");
+document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("on",x===t));document.getElementById("books").classList.toggle("hide",t.dataset.t!=="books");document.getElementById("ret").classList.toggle("hide",t.dataset.t!=="ret")});
+const cols=["#d98a8a","#e3b85c","#9cb59a","#9fc3d6","#a98ab0","#e8a47a"];
 const years=[...new Set(B.map(b=>b.y))].sort((a,b)=>b-a);let sel="all";
 document.getElementById("n").textContent=B.length;document.getElementById("yrs").textContent=years.length;
 const ch=document.getElementById("chips");
@@ -64,8 +86,8 @@ const mon={Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,De
 function up(b){if(b.y<2026)return false;const m=mon[b.d.slice(0,3)];if(m===undefined)return false;const day=parseInt(b.d.slice(4))||1;return new Date(b.y,m,day)>today}
 function esc(s){return s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]))}
 function draw(){const q=document.getElementById("q").value.toLowerCase();let h="";
-years.forEach((y,yi)=>{if(sel!=="all"&&sel!==y)return;const bs=B.filter(b=>b.y===y&&(b.t+" "+b.a).toLowerCase().includes(q));if(!bs.length)return;const yc=cols[y%6][0];
-h+=`<section><h2 style="--c:${yc}">${y}<small>${bs.length} book${bs.length>1?"s":""}</small></h2><div class="grid">`+bs.map((b,i)=>{const c=cols[(y+i)%6];return `<div class="card${up(b)?" up":""}" style="--c:${c[0]};--c2:${c[1]}"><span class="d">${esc(b.d)}${/^\d|^[A-Z][a-z]{2} \d/.test(b.d)?" "+y:""}</span><div class="t">${esc(b.t)}</div>${b.a?`<div class="a">${esc(b.a)}</div>`:""}${up(b)?'<span class="tag">✨ Coming up</span>':""}</div>`}).join("")+"</div></section>"});
-document.getElementById("m").innerHTML=h||'<div class="empty">No matching books 🙈</div>'}
+years.forEach(y=>{if(sel!=="all"&&sel!==y)return;const bs=B.filter(b=>b.y===y&&(b.t+" "+b.a).toLowerCase().includes(q));if(!bs.length)return;
+h+=`<section><h2>${y}<small>${bs.length} book${bs.length>1?"s":""}</small></h2><div class="grid">`+bs.map((b,i)=>{const c=cols[(y+i)%6];return `<div class="card${up(b)?" up":""}" style="--c:${c}"><span class="mk"></span><div class="d">${esc(b.d)}${/^\d|^[A-Z][a-z]{2} \d/.test(b.d)?", "+y:""}</div><div class="t">${esc(b.t)}</div>${b.a?`<div class="a">${esc(b.a)}</div>`:""}${up(b)?'<span class="tag">&#9733; coming up</span>':""}</div>`}).join("")+"</div></section>"});
+document.getElementById("m").innerHTML=h||'<div class="empty">No matching books</div>'}
 document.getElementById("q").oninput=draw;draw();
 </script></body></html>
